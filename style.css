@@ -1,0 +1,229 @@
+/* General Styling */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Great+Vibes&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Great Vibes', cursive;
+    background: url('bd2.jpg') no-repeat center top fixed;
+    background-size: cover;
+    color: #853496;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    animation: fadeInBackground 2s ease-in-out;
+}
+
+/* Container */
+.container {
+    position: relative;
+    width: 100vw;
+    max-width: 80%;
+}
+
+/* Apology Message */
+h1 {
+    font-size: 3.5em;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+/* Larger Apology Message */
+.big-text {
+    font-size: 2.2em;
+    font-weight: bold;
+}
+
+/* Buttons */
+.button {
+    padding: 18px 35px;
+    font-size: 1.6em;
+    font-weight: bold;
+    font-family: 'Dancing Script', cursive;
+    color: #853496;
+    background-color: transparent;
+    border: 3px solid #853496;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Button Hover Effect */
+.button:hover {
+    background-color: rgba(133, 52, 150, 0.2);
+    transform: scale(1.05);
+}
+
+/* Centered "Forgive Me?" Button */
+.center-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* "Forgive Me?" Special Animation */
+@keyframes popInBounce {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+#forgive-me {
+    display: none;
+    color: #853496;
+    animation: popInBounce 1s ease-in-out;
+}
+
+/* Handwritten Apology Note */
+.love-letter {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.4em;
+    color: #853496;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 70%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* "Yes - Or - No" Row Layout */
+.button-container {
+    display: flex;
+    flex-direction: row;  
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* "Or" Text */
+.or-text {
+    font-size: 2em;
+    font-weight: bold;
+    color: #853496;
+    text-align: center;
+}
+
+/* Glowing Text Effect */
+h1, .love-letter, .big-text {
+    text-shadow: 0px 0px 15px rgba(133, 52, 150, 0.5);
+}
+
+/* Flying Heart Animation */
+@keyframes flyUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+}
+
+/* Fix shifting issue by keeping space occupied */
+.flying-heart {
+    display: inline-block;
+    transition: transform 4s ease-in-out, opacity 4s ease-in-out;
+    width: 1.2em; /* ✅ Fixed width prevents text from shifting */
+    height: 1.2em;
+    text-align: center;
+}
+
+/* Apply animation when the heart is about to disappear */
+.flying-heart.fly-away {
+    animation: flyUp 4s forwards;
+}
+
+/* Fireworks Effect */
+.firework {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #ff66b2; /* Bright pink glow */
+    border-radius: 50%;
+    box-shadow: 
+        0 0 15px #ff66b2, 
+        0 0 30px #ff3385, 
+        0 0 45px rgba(255, 51, 133, 0.8); /* Glowing effect */
+    animation: explode 1.5s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    30% {
+        transform: scale(2);
+        opacity: 0.9;
+    }
+    60% {
+        transform: scale(3);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Floating Hearts Animation */
+.heart {
+    position: absolute;
+    font-size: 3em;
+    color: #853496;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: moveUp 8s linear infinite;
+    opacity: 1;
+    filter: blur(2px);
+    text-shadow: 0 0 10px rgba(133, 52, 150, 0.5);
+}
+
+/* Hearts Float Up Without Spinning */
+@keyframes moveUp {
+    0% { transform: translateY(0) scale(0.5); opacity: 1; }
+    50% { transform: translateY(-50vh) scale(1); opacity: 1; }
+    100% { transform: translateY(-100vh) scale(0.8); opacity: 0; }
+}
+
+/* Fade-in Effect */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Background Fade-in Effect */
+@keyframes fadeInBackground {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ✅ Glowing and Pulsing Effect for "Forgive Me?" Button */
+@keyframes pulseGlow {
+    0% { transform: scale(1); box-shadow: 0 0 5px #853496; }
+    50% { transform: scale(1.1); box-shadow: 0 0 20px #853496, 0 0 30px #c7b8ea; }
+    100% { transform: scale(1); box-shadow: 0 0 5px #853496; }
+}
+
+#forgive-me {
+    display: none;
+    color: #853496;
+    animation: popInBounce 1s ease-in-out, pulseGlow 2s infinite ease-in-out;
+}
+
+/* ✅ Glowing Effect on Yes Button Click */
+@keyframes glowEffect {
+    0% { box-shadow: 0 0 5px #853496; }
+    50% { box-shadow: 0 0 25px #853496, 0 0 35px #c7b8ea; transform: scale(1.1); }
+    100% { box-shadow: 0 0 5px #853496; transform: scale(1); }
+}
+
+.yes-button-glow {
+    animation: glowEffect 1.5s ease-in-out;
+}
